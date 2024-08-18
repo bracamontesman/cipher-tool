@@ -1,3 +1,24 @@
+:root {
+    --font-family: "Inter", sans-serif;
+    --font-size-base: 16px;
+    --background-color: #f3f5fc;
+    --primary-color: #0a3871;
+    --secondary-color: #495057;
+    --button-padding: 0.8rem;
+    --button-border-radius: 1.5rem;
+    --button-border-width: 0.063rem;
+    --button-border-color: #0a3871;
+    --button-background: transparent;
+    --button-cursor: pointer;
+    --results-background: #ffffff;
+    --results-border-radius: 2rem;
+    --results-padding: 1.5rem;
+    --results-box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 8%);
+    --image-width: 100%;
+    --image-height: auto;
+    --warning-color: red;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,22 +26,10 @@
 }
 
 body, html {
-    font-family: "Inter", sans-serif;
-    background-color: #f3f5fc;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--background-color);
     height: 100%;
-}
-
-textarea {
-    width: auto;
-    height: 70%;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    outline: none;
-    resize: none;
-    font-family: "Inter", sans-serif;
-    font-size: 32px;
-    color: #0a3871;
 }
 
 /* Container for the entire layout */
@@ -30,21 +39,34 @@ textarea {
     justify-content: center;
     gap: 1rem;
     height: 100vh;
-    padding: 40px;
+    padding: 2.5rem;
 }
 
 /* Left side, logo */
 .logo {
     flex: 1;
-    max-width: 120px;
+    max-width: 7.5rem;
 }
 
 .logo__image {
-    width: 31px;
-    height: 50px;
+    width: 1.938rem;
+    height: 3.125rem;
 }
 
 /* Center side: Text input area */
+textarea {
+    width: auto;
+    height: 70%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    resize: none;
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
 .input {
     display: flex;
     flex: 2;
@@ -53,15 +75,38 @@ textarea {
 }
 
 .input__requirement {
-   font-size: 12px;
-   color: #495057;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
 }
 
 .input__warning {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
+    color: var(--warning-color);
+    font-size: 0.875rem;
+    margin-top: 0.625rem;
     display: none;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+#encrypt, #decrypt, #copyText {
+    width: 20.5rem;
+    max-width: 100%;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    border: var(--button-border-width) solid var(--button-border-color);
+    background: var(--button-background);
+    outline: none;
+    text-decoration: none;
+    margin: 0;
+    font: inherit;
+    cursor: var(--button-cursor);
 }
 
 /* Right side: Default image and Results */
@@ -70,25 +115,46 @@ textarea {
     flex: 3;
     flex-direction: column;
     justify-content: center;
-    max-width: 400px;
-    background-color: #ffffff;
-    border-radius: 32px;
-    padding: 32px;
+    max-width: 25rem;
+    background-color: var(--results-background);
+    border-radius: var(--results-border-radius);
+    padding: var(--results-padding);
+    box-shadow: var(--results-box-shadow);
 }
 
-/* Basic styling for the container and image */
 #defaultMessage {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers content horizontally */
+    align-items: center;
 }
 
 #defaultImage {
-    width: 100%; /* adjust as needed */
-    height: auto; /* maintains aspect ratio */
+    width: var(--image-width);
+    height: var(--image-height);
 }
 
-@media (max-width: 900px) {
+#resultContainer {
+    display: flex;
+}
+
+#resultText {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+}
+
+#copyText {
+    margin-top: auto;
+    border-radius: var(--button-border-radius); /* Consistent button styling */
+    border: var(--button-border-width) solid var(--button-border-color); /* Consistent button styling */
+    background: var(--button-background); /* Consistent button styling */
+    cursor: var(--button-cursor); /* Pointer cursor on hover */
+}
+
+
+/* Responsiveness */
+@media (max-width: 1200px), (max-width: 450px) {
     .container {
         flex-direction: column;
     }
@@ -99,5 +165,16 @@ textarea {
 
     #defaultImage {
         display: none;
+    }
+
+    .buttons {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 450px) {
+        .buttons {
+            flex-direction: column;
+        }
     }
 }
