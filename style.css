@@ -1,40 +1,103 @@
-/* Reset margins and padding for consistency */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Set basic styles for body and HTML */
 body, html {
     font-family: "Inter", sans-serif;
     background-color: #f3f5fc;
     height: 100%;
 }
 
-/* Container for the entire layout */
-.content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    height: 100vh;
-    padding: 1rem;
-}
-
-/* Left side: Text input area */
-.input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 textarea {
-    width: 100%;
+    width: auto;
     height: 70%;
     background: transparent;
     border: none;
     box-shadow: none;
     outline: none;
     resize: none;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    color: #0a3871;
+}
+
+/* Container for the entire layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    height: 100vh;
+    padding: 40px;
+}
+
+/* Left side, logo */
+.logo {
+    flex: 1;
+    max-width: 120px;
+}
+
+.logo__image {
+    width: 31px;
+    height: 50px;
+}
+
+/* Center side: Text input area */
+.input {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input__requirement {
+   font-size: 12px;
+   color: #495057;
+}
+
+.input__warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Right side: Default image and Results */
+.results {
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    padding: 32px;
+}
+
+/* Basic styling for the container and image */
+#defaultMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers content horizontally */
+}
+
+#defaultImage {
+    width: 100%; /* adjust as needed */
+    height: auto; /* maintains aspect ratio */
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .results {
+        max-width: 100%;
+    }
+
+    #defaultImage {
+        display: none;
+    }
 }
