@@ -18,6 +18,14 @@ document.getElementById('copyText').addEventListener('click', function() {
     copyToClipboard(resultText);
 });
 
+document.getElementById('logoReset').addEventListener('click', function() {
+    // clear the content of the textarea
+    document.getElementById('inputText').value = '';
+    
+    // reload the page
+    location.reload();
+});
+
 // Validate and convert input to lowercase
 function validateAndConvert(text) {
     let warningMessage = document.getElementById('warningMessage');
@@ -53,7 +61,7 @@ function displayOutput(text) {
     // Hide the default message and show the result container
     defaultMessage.style.display = 'none';
     resultTextDiv.innerText = text;
-    resultContainer.style.display = 'block';
+    resultContainer.style.display = 'flex';
 }
 
 // Copy the result text to the clipboard when the user clicks the "copy" button

@@ -5,10 +5,10 @@
     --primary-color: #0a3871;
     --secondary-color: #495057;
     --button-padding: 0.8rem;
-    --button-border-radius: 1.5rem;
+    --button-border-radius: 1rem;
     --button-border-width: 0.063rem;
     --button-border-color: #0a3871;
-    --button-background: transparent;
+    --button-background-color: #0a3871;
     --button-cursor: pointer;
     --results-background: #ffffff;
     --results-border-radius: 2rem;
@@ -56,7 +56,7 @@ body, html {
 /* Center side: Text input area */
 textarea {
     width: auto;
-    height: 70%;
+    height: 83%;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -72,6 +72,7 @@ textarea {
     flex: 2;
     flex-direction: column;
     justify-content: center;
+    margin-right: 1.7rem;
 }
 
 .input__requirement {
@@ -101,12 +102,16 @@ textarea {
     padding: var(--button-padding);
     border-radius: var(--button-border-radius);
     border: var(--button-border-width) solid var(--button-border-color);
-    background: var(--button-background);
     outline: none;
     text-decoration: none;
     margin: 0;
     font: inherit;
     cursor: var(--button-cursor);
+}
+
+.background {
+    background-color: var(--button-background-color);
+    color: #ffffff;
 }
 
 /* Right side: Default image and Results */
@@ -133,11 +138,23 @@ textarea {
     height: var(--image-height);
 }
 
+.default__text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0 1rem 0;
+}
+
 #resultContainer {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 #resultText {
+    flex-grow: 1;
+    margin-bottom: 1rem;
     overflow-wrap: break-word;
     word-break: break-word;
     white-space: pre-wrap;
@@ -146,12 +163,12 @@ textarea {
 
 #copyText {
     margin-top: auto;
-    border-radius: var(--button-border-radius); /* Consistent button styling */
-    border: var(--button-border-width) solid var(--button-border-color); /* Consistent button styling */
-    background: var(--button-background); /* Consistent button styling */
-    cursor: var(--button-cursor); /* Pointer cursor on hover */
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    border: var(--button-border-width) solid var(--button-border-color);
+    background: var(--button-background);
+    cursor: var(--button-cursor);
 }
-
 
 /* Responsiveness */
 @media (max-width: 1200px), (max-width: 450px) {
@@ -159,8 +176,21 @@ textarea {
         flex-direction: column;
     }
 
+    .logo {
+        max-height: 5rem;
+    }
+
+    .input {
+        margin: 0;
+    }
+
     .results {
         max-width: 100%;
+        max-height: 25%;
+    }
+
+    .default__text {
+        margin: 0;
     }
 
     #defaultImage {

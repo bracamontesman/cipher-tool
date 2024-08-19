@@ -16,15 +16,15 @@
 
         <!-- Left side: Upper logo -->
         <div class="logo">
-            <img src="img/logo.png" alt="Alura logo" class="logo__image">
+            <img src="img/logo.png" alt="Alura logo" class="logo__image" id="logoReset">
         </div>
 
         <!-- Center: Text input and buttons -->
         <div class="input">
             <textarea id="inputText" placeholder="enter text here"></textarea>
-            <p class="input__requirement"><i class="fa-solid fa-circle-info"></i> a-z only, no specials</p>
+            <p class="input__requirement"><i class="fa-solid fa-circle-info"></i> a-z only, no caps nor specials. hit the logo on the left to reset.</p>
             <div class="buttons">
-                <button id="encrypt">lock</button>
+                <button id="encrypt" class="background">lock</button>
                 <button id="decrypt">unlock</button>
             </div>
             <p id="warningMessage" class="input__warning"></p>
@@ -34,8 +34,8 @@
         <div class="results" id="cipherOutput">
             <div id="defaultMessage">
                 <img src="img/muñeco.png" id="defaultImage" alt="Default Image">
-                <p>no message processed</p>
-                <p>please, enter a message to encrypt/decrypt</p>
+                <p class="default__text">no message processed</p>
+                <p>enter a message to encrypt/decrypt</p>
             </div>
             <div id="resultContainer" style="display: none;">
                 <div id="resultText"></div>
